@@ -46,12 +46,12 @@ public class login extends AppCompatActivity {
             }
         });
 
-        /*btnReset.setOnClickListener(new View.OnClickListener() {
+        btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(login.this, ResetPasswordActivity.class));
+                startActivity(new Intent(login.this, ResetPassword.class));
             }
-        });*/
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
