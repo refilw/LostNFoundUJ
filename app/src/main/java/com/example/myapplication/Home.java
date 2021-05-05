@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -18,6 +21,7 @@ public class Home extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
     DatabaseReference mDatabaseRef;
+    private BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +38,12 @@ public class Home extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChild(userID))
                         {
-                            Intent moveToHome = new Intent(Home.this,ProfileActivity.class);
-                            moveToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(moveToHome);
+
                         }
                         else {
-                            Intent moveToHome = new Intent(Home.this,ProfileActivity.class);
-                            moveToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(moveToHome);
+//                            Intent moveToHome = new Intent(Home.this,ProfileActivity.class);
+//                            moveToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                            startActivity(moveToHome);
                         }
                     }
 
@@ -61,7 +63,25 @@ public class Home extends AppCompatActivity {
         mAuth.addAuthStateListener(mAuthListener);
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.action_favorites:
+                                Toast.makeText(getApplicationContext(), "Favorites", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.action_home:
+                                Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.action_profile:
+                                Intent inentProfile = new Intent(Home.this, ProfileActivity.class);
+                                startActivity(inentProfile);
+                                break;
+                        }
+                        return true;
+                    }
+                });
     }
 
     @Override
@@ -77,6 +97,7 @@ public class Home extends AppCompatActivity {
     }
     private void setupUIViews()
     {
-
+        bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottom_navigation);
     }
 }
