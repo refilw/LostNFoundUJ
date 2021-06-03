@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Upload">
+
+    <EditText
+        android:id="@+id/txtId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="207dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="479dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="id" />
+
+    <EditText
+        android:id="@+id/txtDocument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="315dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="371dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="type" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="430dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="256dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="517dp"
+        android:layout_marginEnd="192dp"
+        android:layout_marginBottom="166dp"
+        android:text="Upload" />
+</RelativeLayout>
